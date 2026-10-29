@@ -33,3 +33,23 @@ jobs:
           publish_dir: ./public
           publish_branch: gh-pages
           cname: www.nimma.codes
+
+  # GitHub zet geplande workflows in publieke repo's uit na 60 dagen zonder activiteit.
+  # Staat main 50 dagen stil, dan zet deze job er een lege commit op. Een push met de
+  # GITHUB_TOKEN start zelf geen nieuwe workflow-run.
+  keepalive:
+    name: Keep scheduled build alive
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Lege commit als main 50 dagen stil is
+        run: |
+          days=$(( ( $(date +%s) - $(git log -1 --format=%ct) ) / 86400 ))
+          echo "Laatste commit op main: $days dagen geleden"
+          if [ "$days" -ge 50 ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898333+github-actions[bot]@users.noreply.github.com"
+            git commit --allow-empty -m "chore: keepalive voor de dagelijkse build"
+            git push
+          fi

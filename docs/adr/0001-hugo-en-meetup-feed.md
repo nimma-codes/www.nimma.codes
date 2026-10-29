@@ -15,6 +15,7 @@ De huidige site is gebouwd met Hugo en een eigen theme (`nimma-codes`), met de b
 2. De volgende meetup halen we op tijdens de build met `resources.GetRemote`, uit de openbare iCal-feed van de groep (`/events/ical/`). De RSS-feed geeft alleen de publicatiedatum, niet de datum van de avond. De API vraagt om OAuth. iCal heeft titel, starttijd en link, maar geen locatie: de host halen we uit de titel (het deel na `@`).
 3. Een geplande GitHub Action bouwt en deployt de site elke dag opnieuw, zodat het blok actueel blijft zonder handwerk. De site heeft zo geen redactioneel onderhoud nodig.
 4. Lukt het ophalen niet, of staat er geen meetup gepland, dan toont het blok "Volgende meetup wordt binnenkort aangekondigd" met de knop naar Meetup. De build faalt daar niet op.
+5. Twee vangnetten houden het onderhoudsvrij. Een script in de pagina toont de knop naar Meetup zodra de getoonde avond voorbij is, ook als de build is stilgevallen. Een keepalive-job zet een lege commit op `main` na 50 dagen stilte, zodat GitHub de geplande build niet uitzet. De bekende action `keepalive-workflow` is door GitHub geblokkeerd, daarom staat de stap in de workflow zelf.
 
 ## Redenering
 

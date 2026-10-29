@@ -7,9 +7,11 @@
 // Toon de balk pas als het blok "Volgende meetup" uit beeld is, en verberg hem weer bij het slotblok.
 (() => {
   const bar = document.querySelector('.n-sticky');
-  const next = document.querySelector('.n-next');
+  // Zonder data-ends heeft het vangnet in next-meetup.html de avond als voorbij gemarkeerd.
+  const next = document.querySelector('.n-next[data-ends]');
   const cta = document.querySelector('.n-cta');
-  if (!bar || !next || !cta) return;
+  if (!next) { bar?.remove(); return; }
+  if (!bar || !cta) return;
   let queued = false;
   const update = () => {
     queued = false;

@@ -24,6 +24,8 @@ HUGO_PARAMS_MEETUP_ICAL=https://example.com/feed.ics hugo server
 
 Geen database of seeds. Het blok "Volgende meetup" komt bij elke build uit de iCal-feed van de Meetup-groep (`params.meetup.ical` in `config.toml`). Staat er niets gepland of is de feed onbereikbaar, dan toont het blok "Wordt binnenkort aangekondigd" en geeft Hugo een waarschuwing. De build faalt niet.
 
+Valt de dagelijkse build stil, dan kan er een avond op de site blijven staan die al geweest is. Een klein script in `partials/home/next-meetup.html` vangt dat op: is het vier uur na de start, dan toont het blok in de browser de knop naar Meetup en verdwijnt de mobiele balk.
+
 ## Externe afhankelijkheden
 
 | Systeem | Hoe gekoppeld |
@@ -44,7 +46,7 @@ Er is geen aparte preview-site meer. Bekijk wijzigingen lokaal met `hugo server`
 
 De branch `gh-pages` bevat alleen gegenereerde bestanden. Pas daar niets met de hand aan, de volgende build overschrijft het.
 
-GitHub zet geplande workflows uit als er 60 dagen niets in de repo gebeurt. Je krijgt daar vooraf een mail over. Zet ze dan weer aan onder Actions, of push een commit.
+GitHub zet geplande workflows in publieke repo's uit als er 60 dagen niets in de repo gebeurt. De job `keepalive` in dezelfde workflow voorkomt dat: staat `main` 50 dagen stil, dan zet hij er een lege commit op. Staat de build toch uit, zet hem dan weer aan onder Actions.
 
 ## Testen
 
