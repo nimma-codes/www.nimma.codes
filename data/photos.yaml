@@ -1,0 +1,17 @@
+# Foto's in "Zo ziet een avond eruit". Bestanden staan in assets/photos/, verkleind tot 2000px
+# breed en zonder EXIF-data. Hugo maakt er bij de build WebP-versies van.
+# Zonder src toont het vak een placeholder. size: big (2x2), wide (2x1) of leeg (1x1).
+- caption: Lightning talks bij Planon, maart 2024
+  size: big
+  src: photos/zaal-planon-2024.jpg
+  alt: Een volle zaal kijkt naar een spreker naast een groot projectiescherm
+- caption: Linku, april 2024
+  src: photos/spreker-linku-2024.jpg
+  alt: Een spreker vertelt bij een scherm met de dia "Left flank is falling!"
+- caption: Dojo, december 2023
+  src: photos/dojo-advent-of-code-2023.jpg
+  alt: Deelnemers met laptops aan tafels overleggen over een opdracht
+- caption: Borrel, juni 2024
+  size: wide
+  src: photos/borrel-2024.jpg
+  alt: Bezoekers staan na de talks met een drankje bij elkaar te praten

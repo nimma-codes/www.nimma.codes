@@ -1,0 +1,10 @@
+{{- $l := site.Params.links -}}
+<footer class="n-footer">
+<div class="n-wrap n-footer-in">
+<div class="n-footer-brand"><img src="{{ "img/logo.svg" | relURL }}" alt="Nimma Codes"><p>Een cross-language user group voor developers in de regio Arnhem-Nijmegen.</p></div>
+<nav class="n-footer-col" aria-label="Community"><div class="n-footer-h">Community</div><a href="{{ $l.meetup }}">Meetup</a><a href="{{ $l.discord }}">Discord</a><a href="{{ $l.github }}">GitHub</a></nav>
+<nav class="n-footer-col" aria-label="Meedoen"><div class="n-footer-h">Meedoen</div><a href="{{ $l.talks }}">Talk indienen</a><a href="mailto:{{ $l.email }}">Avond hosten</a></nav>
+<nav class="n-footer-col" aria-label="Over"><div class="n-footer-h">Over</div>{{ with site.GetPage "/pages/code-of-conduct" }}<a href="{{ .RelPermalink }}">Code of Conduct</a>{{ end }}<a href="{{ site.Params.github_source }}">Broncode</a></nav>
+</div>
+<div class="n-wrap"><div class="n-footer-bottom">Nimma.codes · Arnhem-Nijmegen · <a href="mailto:{{ $l.email }}">{{ $l.email }}</a></div></div>
+</footer>

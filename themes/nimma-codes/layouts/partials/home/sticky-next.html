@@ -1,0 +1,24 @@
+{{- with .meetup }}
+<div class="n-sticky" aria-label="Volgende meetup">
+<div class="n-sticky-txt"><div class="n-sticky-when">Volgende meetup</div><div class="n-sticky-title">{{ .start | time.Format "Monday 2 January" }}, {{ .start | time.Format "15:04" }}</div></div>
+<a class="n-sticky-btn" href="{{ .url }}">Aanmelden</a>
+</div>
+<script>
+// Toon de balk pas als het blok "Volgende meetup" uit beeld is, en verberg hem weer bij het slotblok.
+(() => {
+  const bar = document.querySelector('.n-sticky');
+  const next = document.querySelector('.n-next');
+  const cta = document.querySelector('.n-cta');
+  if (!bar || !next || !cta) return;
+  let queued = false;
+  const update = () => {
+    queued = false;
+    const past = next.getBoundingClientRect().bottom < 0;
+    const atEnd = cta.getBoundingClientRect().top < innerHeight;
+    bar.classList.toggle('is-on', past && !atEnd);
+  };
+  addEventListener('scroll', () => { if (!queued) { queued = true; requestAnimationFrame(update); } }, { passive: true });
+  update();
+})();
+</script>
+{{- end }}

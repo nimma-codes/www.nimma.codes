@@ -1,0 +1,35 @@
+name: Deploy www.nimma.codes
+
+on:
+  push:
+    branches:
+      - main
+  # Dagelijks opnieuw bouwen, zodat het blok "Volgende meetup" actueel blijft (docs/adr/0001)
+  schedule:
+    - cron: "15 5 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: deploy
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: Build and deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: "0.168.0"
+          extended: true
+      - run: hugo --minify
+      - uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          publish_branch: gh-pages
+          cname: www.nimma.codes

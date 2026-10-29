@@ -1,0 +1,11 @@
+{{- $l := site.Params.links -}}
+<header class="n-header">
+<div class="n-wrap n-header-in">
+<a class="n-logo" href="{{ "/" | relURL }}" aria-label="Nimma.codes home"><img src="{{ "img/logo.svg" | relURL }}" alt="Nimma Codes"></a>
+<nav class="n-nav" aria-label="Community">
+<a class="n-chip" href="{{ $l.discord }}">{{ partial "icons/discord.html" }}<span>Discord</span></a>
+<a class="n-chip" href="{{ $l.github }}">{{ partial "icons/github.html" }}<span>GitHub</span></a>
+<a class="n-chip n-chip-primary" href="{{ $l.meetup }}">{{ partial "icons/meetup.html" }}<span>Meetup</span></a>
+</nav>
+</div>
+</header>

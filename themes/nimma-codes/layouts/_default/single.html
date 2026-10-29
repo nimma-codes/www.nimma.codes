@@ -1,0 +1,32 @@
+{{ define "main" }}
+<main>
+<section class="c-hero n-grid">
+<div class="n-wrap">
+<nav class="c-crumb" aria-label="Kruimelpad"><a href="{{ "/" | relURL }}">Home</a><span aria-hidden="true">/</span><span aria-current="page">{{ .Title }}</span></nav>
+<h1 class="n-h c-h1">{{ .Title }}</h1>
+{{- with .Params.lead }}
+<p class="c-lead">{{ . }}</p>
+{{- end }}
+</div>
+</section>
+<div class="n-wrap c-layout{{ if not .Params.report }} c-layout-single{{ end }}">
+{{- if .Params.report }}
+<aside class="c-aside">
+<nav class="c-toc" aria-label="Op deze pagina">
+{{- range findRESubmatch `<h2 id="([^"]+)"[^>]*>([^<]+)</h2>` .Content }}
+<a href="#{{ index . 1 }}">{{ index . 2 | htmlUnescape }}</a>
+{{- end }}
+</nav>
+<div class="c-report">
+<h2 class="n-h">Iets gezien of meegemaakt?</h2>
+<p>Meld het bij de communityleiders. Je melding wordt vertrouwelijk behandeld.</p>
+<a class="n-btn n-btn-sm" href="mailto:{{ site.Params.links.email }}">Mail {{ site.Params.links.email }}</a>
+</div>
+</aside>
+{{- end }}
+<article class="c-body">
+{{ .Content }}
+</article>
+</div>
+</main>
+{{ end }}

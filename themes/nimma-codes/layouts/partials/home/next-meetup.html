@@ -1,0 +1,14 @@
+{{- $m := .meetup -}}
+<section class="n-wrap" aria-label="Volgende meetup">
+<div class="n-next">
+{{- with $m }}
+<div class="n-cell n-cell-title"><div class="n-label">Volgende meetup</div><div class="n-title">{{ .title }}</div></div>
+<div class="n-cell n-cell-when"><div class="n-label">Wanneer</div><div class="n-val"><time datetime="{{ .start.Format "2006-01-02T15:04" }}">{{ .start | time.Format "Monday 2 January" }}, {{ .start | time.Format "15:04" }}</time></div></div>
+<div class="n-cell n-cell-where"><div class="n-label">Waar</div><div class="n-val">{{ .host | default "Zie Meetup" }}</div></div>
+<a class="n-go" href="{{ .url }}">Aanmelden <span aria-hidden="true">↗</span></a>
+{{- else }}
+<div class="n-cell n-cell-title n-cell-empty"><div class="n-label">Volgende meetup</div><div class="n-title">Wordt binnenkort aangekondigd</div></div>
+<a class="n-go" href="{{ site.Params.links.meetup }}">Volg ons op Meetup <span aria-hidden="true">↗</span></a>
+{{- end }}
+</div>
+</section>
