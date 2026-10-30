@@ -1,0 +1,14 @@
+{{ define "main" }}
+{{- $ctx := dict "meetup" (partialCached "meetup/next.html" .) }}
+<main>
+{{- partial "home/hero.html" . }}
+{{- partial "home/next-meetup.html" $ctx }}
+{{- partial "home/photos.html" . }}
+{{- partial "home/about.html" . }}
+{{- partial "home/activities.html" . }}
+{{- partial "home/cta.html" . }}
+</main>
+{{ end }}
+{{ define "after" }}
+{{- partial "home/sticky-next.html" (dict "meetup" (partialCached "meetup/next.html" .)) }}
+{{ end }}

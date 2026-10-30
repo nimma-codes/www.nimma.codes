@@ -1,0 +1,7 @@
+### JETBRAINS ###
+.idea/
+
+### PROJECT ###
+resources/_gen/
+public/
+.hugo_build.lock

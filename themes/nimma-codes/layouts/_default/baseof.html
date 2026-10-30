@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="nl">
+{{- partial "head.html" . -}}
+<body>
+<div class="n">
+{{- partial "header.html" . -}}
+{{- block "main" . }}{{- end }}
+{{- partial "footer.html" . -}}
+{{- block "after" . }}{{- end }}
+</div>
+</body>
+</html>

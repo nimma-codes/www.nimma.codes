@@ -1,0 +1,20 @@
+<section id="fotos" class="n-wrap n-sec">
+<div class="n-sec-head">
+<h2 class="n-h n-h2">Zo ziet een avond eruit</h2>
+<a class="n-sec-link" href="{{ site.Params.links.photos }}">Meer foto's op Meetup ↗</a>
+</div>
+<div class="n-photos">
+{{- range $i, $p := hugo.Data.photos }}
+<figure class="n-ph{{ with $p.size }} n-ph-{{ . }}{{ end }}">
+{{- with $p.src }}{{ with resources.Get . }}
+{{- $twoCol := in (slice "big" "wide") $p.size }}
+{{- $w := cond $twoCol 1600 800 }}
+{{- $img := .Resize (printf "%dx webp q80" $w) }}
+{{- $half := .Resize (printf "%dx webp q80" (div $w 2)) }}
+<img src="{{ $img.RelPermalink }}" srcset="{{ $half.RelPermalink }} {{ $half.Width }}w, {{ $img.RelPermalink }} {{ $img.Width }}w" sizes="(min-width: 1024px) {{ cond $twoCol "50vw" "25vw" }}, {{ cond $twoCol "100vw" "50vw" }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="{{ $p.alt }}"{{ if gt $i 0 }} loading="lazy"{{ end }}>
+{{- end }}{{ end }}
+<figcaption class="n-cap">{{ $p.caption }}</figcaption>
+</figure>
+{{- end }}
+</div>
+</section>

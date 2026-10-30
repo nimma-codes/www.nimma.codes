@@ -1,0 +1,12 @@
+{{- $l := site.Params.links -}}
+<section class="n-wrap n-sec n-sec-last">
+<div class="n-cta n-grid">
+<div>
+<h2 class="n-h n-cta-h">Wil je meer weten? <span class="n-accent">Check onze Meetup.</span></h2>
+<p>Word lid van de groep, dan krijg je een mail als er een nieuwe avond gepland staat. Meestal is er ook bier en pizza.</p>
+<a class="n-btn" href="{{ $l.meetup }}">Word lid op Meetup <span aria-hidden="true">↗</span></a>
+<div class="n-links"><a href="{{ $l.talks }}">Zelf een talk geven?</a><a href="{{ $l.discord }}">Discord</a></div>
+</div>
+<img class="n-cta-img" src="{{ "img/illu-na-afloop.svg" | relURL }}" alt="Lijntekening van pizzadozen en twee glazen bier op een tafel">
+</div>
+</section>

@@ -1,0 +1,21 @@
+{{- $l := site.Params.links -}}
+<section id="top" class="n-hero n-grid">
+<div class="n-wrap n-hero-in">
+<div class="n-hero-copy">
+<h1 class="n-h n-h1">Een kijkje in <span class="n-accent">andermans keuken.</span></h1>
+<p class="n-lead">Een meetup voor developers uit de regio Arnhem - Nijmegen. Welke programmeertaal je voorkeur heeft maakt niet uit. Kijk op Meetup om te zien waar we welkom zijn geweest en welke onderwerpen er al langs zijn gekomen.</p>
+<div class="n-actions">
+<a class="n-btn" href="{{ $l.meetup }}">Bekijk de meetups <span aria-hidden="true">↗</span></a>
+<a class="n-actions-alt" href="{{ $l.discord }}">of kom langs op Discord</a>
+</div>
+</div>
+<div class="n-sky">
+<img class="n-sky-img" src="{{ "img/skyline.svg" | relURL }}" alt="Lijntekening van de Nijmeegse skyline met kerktorens en de Waalbrug">
+<div class="n-scan" aria-hidden="true"></div>
+<a class="n-stamp" href="{{ $l.meetup }}" aria-hidden="true" tabindex="-1">
+<svg class="n-stamp-ring" viewBox="0 0 200 200" aria-hidden="true"><defs><path id="nring" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"></path></defs><text font-family="Poppins, sans-serif" font-size="14" font-weight="600" fill="#0062D6"><textPath href="#nring" textLength="486" lengthAdjust="spacing">AANMELDEN VIA MEETUP · AANMELDEN VIA MEETUP · </textPath></text></svg>
+<svg class="n-stamp-mark" viewBox="0 0 740 554" aria-hidden="true" fill="#0077FF"><path d="M738,1H368.1c-7,0-13.3,3.9-16.5,10.2l-54.6,109.1c-1,2.1-3.2,3.4-5.5,3.4H147.3c-7,0-13.3,3.9-16.5,10.2L2,391.6c-6.1,12.2,2.8,26.6,16.5,26.6h125.9c4.6,0,7.5,4.8,5.5,8.9l-49.7,99.5c-6.1,12.2,2.8,26.6,16.5,26.6H480.4c7,0,13.3-3.9,16.5-10.2l55.2-110.4c6.1-12.2-2.8-26.6-16.5-26.6h-113.7c-2.3,0-4.4-1.3-5.5-3.4l-41.9-83.8c-2.3-4.5-8.7-4.5-11,0l-41.9,83.8c-1,2.1-3.2,3.4-5.5,3.4h-127.4c-4.6,0-7.5-4.8-5.5-8.9l122.7-245.4c1-2.1,3.2-3.4,5.5-3.4h115.1c2.3,0,4.4,1.3,5.5,3.4l41.9,83.8c2.3,4.5,8.7,4.5,11,0l41.9-83.8c1-2.1,3.2-3.4,5.5-3.4h150.5c7,0,13.3-3.9,16.5-10.2l55.2-110.4c6.1-12.2-2.8-26.6-16.5-26.6Z"></path></svg>
+</a>
+</div>
+</div>
+</section>

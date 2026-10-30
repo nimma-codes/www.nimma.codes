@@ -1,0 +1,42 @@
+{{- /*
+  Haalt de volgende meetup op uit de iCal-feed van de Meetup-groep (zie docs/adr/0001).
+  Geeft een dict terug met title, host, start (time.Time) en url, of een lege dict
+  als de feed niet bereikbaar is of er niets gepland staat. De build faalt daar niet op.
+*/ -}}
+{{- $next := dict -}}
+{{- with site.Params.meetup.ical -}}
+  {{- with try (resources.GetRemote .) -}}
+    {{- with .Err -}}
+      {{- warnf "Meetup-feed niet opgehaald: %s" . -}}
+    {{- else with .Value -}}
+      {{- $txt := replace .Content "\r\n" "\n" -}}
+      {{- $txt = replace $txt "\n " "" -}}
+      {{- range after 1 (split $txt "BEGIN:VEVENT") -}}
+        {{- $ev := dict -}}
+        {{- range split . "\n" -}}
+          {{- if hasPrefix . "SUMMARY:" -}}
+            {{- $ev = merge $ev (dict "summary" (strings.TrimPrefix "SUMMARY:" . | replaceRE `\\([,;\\])` "$1")) -}}
+          {{- else if hasPrefix . "DTSTART" -}}
+            {{- $v := index (last 1 (split . ":")) 0 -}}
+            {{- $iso := printf "%s-%s-%sT%s:%s:00" (substr $v 0 4) (substr $v 4 2) (substr $v 6 2) (substr $v 9 2) (substr $v 11 2) -}}
+            {{- $ev = merge $ev (dict "start" (time.AsTime $iso "Europe/Amsterdam")) -}}
+          {{- else if hasPrefix . "URL" -}}
+            {{- $ev = merge $ev (dict "url" (replaceRE `^URL[^:]*:` "" .)) -}}
+          {{- end -}}
+        {{- end -}}
+        {{- if and (not $next) $ev.start ($ev.start.After now) -}}
+          {{- $title := strings.TrimPrefix "Nimma.codes: " $ev.summary -}}
+          {{- $host := "" -}}
+          {{- with findRESubmatch `^(.*?)\s+@\s+(.+)$` $title 1 -}}
+            {{- $title = index (index . 0) 1 -}}
+            {{- $host = index (index . 0) 2 -}}
+          {{- end -}}
+          {{- $next = dict "title" $title "host" $host "start" $ev.start "url" ($ev.url | default site.Params.links.meetup) -}}
+        {{- end -}}
+      {{- end -}}
+    {{- else -}}
+      {{- warnf "Meetup-feed niet gevonden: %s" site.Params.meetup.ical -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $next -}}
