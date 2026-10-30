@@ -1,17 +1,17 @@
 # Foto's in "Zo ziet een avond eruit". Bestanden staan in assets/photos/, verkleind tot 2000px
 # breed en zonder EXIF-data. Hugo maakt er bij de build WebP-versies van.
 # Zonder src toont het vak een placeholder. size: big (2x2), wide (2x1) of leeg (1x1).
-- caption: Lightning talks bij Planon, maart 2024
+- caption: Spec-driven development bij Perplex, oktober 2026
   size: big
-  src: photos/zaal-planon-2024.jpg
-  alt: Een volle zaal kijkt naar een spreker naast een groot projectiescherm
-- caption: Linku, april 2024
-  src: photos/spreker-linku-2024.jpg
-  alt: Een spreker vertelt bij een scherm met de dia "Left flank is falling!"
-- caption: Dojo, december 2023
-  src: photos/dojo-advent-of-code-2023.jpg
-  alt: Deelnemers met laptops aan tafels overleggen over een opdracht
-- caption: Borrel, juni 2024
+  src: photos/zaal-perplex-2026.jpg
+  alt: Een volle zaal kijkt naar een groot scherm met een dia over de developmentflow
+- caption: Rakoo, mei 2026
+  src: photos/spreker-rakoo-2026.jpg
+  alt: Een spreker staat naast een Nimma Codes-banner en een scherm over een graph- en vectordatabase
+- caption: 10KB, maart 2026
+  src: photos/publiek-10kb-2026.jpg
+  alt: Bezoekers op stoelen en een tribune luisteren in een lichte zaal met boogramen
+- caption: Zomer-BBQ bij Webbio, augustus 2026
   size: wide
-  src: photos/borrel-2024.jpg
-  alt: Bezoekers staan na de talks met een drankje bij elkaar te praten
+  src: photos/bbq-webbio-2026.jpg
+  alt: Bezoekers zitten buiten aan picknicktafels terwijl iemand bij een statafel met laptop praat
