@@ -131,7 +131,7 @@ De vier vakken in `.n-photos` zijn nog placeholders (`<figure class="n-ph">`). V
 | GitHub-organisatie | https://github.com/nimma-codes |
 | Talk indienen | https://github.com/nimma-codes/talks/issues |
 | Broncode site | https://github.com/nimma-codes/preview.nimma.codes |
-| Contact en melden | mailto:info@nimma.codes |
+| Contact en melden | mailto:contact@nimma.codes |
 
 ## Toegankelijkheid
 

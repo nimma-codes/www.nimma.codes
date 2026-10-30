@@ -13,7 +13,7 @@ disableKinds = ['taxonomy', 'term', 'section', 'RSS']
   discord = 'https://discord.gg/XN6P9X3WKj'
   github = 'https://github.com/nimma-codes'
   talks = 'https://github.com/nimma-codes/talks/issues'
-  email = 'info@nimma.codes'
+  email = 'contact@nimma.codes'
 [params.meetup]
   # Openbare iCal-feed van de groep; zie docs/adr/0001-hugo-en-meetup-feed.md
   ical = 'https://www.meetup.com/nimma-codes-meetup-group/events/ical/'

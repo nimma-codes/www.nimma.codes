@@ -40,7 +40,7 @@ report: true
 <p>Deze Gedragscode is van toepassing binnen alle gemeenschappelijke ruimtes en is ook van toepassing wanneer een individu officieel de community in openbare ruimtes vertegenwoordigt. Voorbeelden van het vertegenwoordigen van onze community zijn onder meer het gebruik van een officieel e‑mailadres, berichten plaatsen via een officieel social media account of optreden als een aangestelde vertegenwoordiger bij een online of offline evenement.</p>
 
 <h2 id="melden" class="n-h">Melden</h2>
-<p>Beledigend, intimiderend of anderszins onaanvaardbaar gedrag kan gerapporteerd worden aan de communityleiders die verantwoordelijk zijn voor handhaving via <a href="mailto:info@nimma.codes">info@nimma.codes</a>. Alle klachten zullen onmiddellijk en eerlijk worden beoordeeld en onderzocht.</p>
+<p>Beledigend, intimiderend of anderszins onaanvaardbaar gedrag kan gerapporteerd worden aan de communityleiders die verantwoordelijk zijn voor handhaving via <a href="mailto:contact@nimma.codes">contact@nimma.codes</a>. Alle klachten zullen onmiddellijk en eerlijk worden beoordeeld en onderzocht.</p>
 <p>Alle communityleiders zijn verplicht om de privacy en veiligheid van de melder van een incident te respecteren.</p>
 
 <h2 id="richtlijnen" class="n-h">Handhavingsrichtlijnen</h2>
